@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>404 — ft_server</title>
+	<style>
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			display:flex; flex-direction:column; justify-content:center;
+			height: 100vh;
+			text-align: center;
+			background-color: #111;
+			color: floralwhite;
+			margin: 0;
+		}
+		nav {
+			margin: 0;
+			padding: 0;
+			margin-top: 2em;
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			line-height: 1.5;
+		}
+		a {
+			color: cyan;
+			text-decoration: none;
+		}
+		a:visited {
+			color: fuchsia;
+		}
+		a:hover {
+			color: orange;
+		}
+	</style>
+	<link rel="icon" type="image/png" href="https://www.42.fr/wp-content/themes/42/images/42_logo_black.svg">
+</head>
+<body>
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 240 320" width="100" style="margin: 0 auto;">
+		<path fill="#000" d="M0 160V0h240v320H0V160z"/>
+		<path fill="#fff" d="M0 280h10V20H0h10V10h10V0v10h200V0v10h10v10h10-10v260h10-10v40-40H10v40-40H0zm50-35v-5H30v10h20v-5zm150-10v-5h-60v10h60v-5zm0-50v-5h10V40h-10V30H40v10H30v140h10v10h160v-5zM20 15v-5H10v10h10v-5zm210 0v-5h-10v10h10v-5z"/>
+		<path fill="#fff" d="M40 110V40h160v140H40v-70zm130 55v-5h-10v-10h-20v-10H90v10H80v10h10v-10h50v10h20v10h10v-5zm-50-40v-5h10v-10h-10v10h-20v-10H90v10h10v10h20v-5zM70 95v-5h10v10h10V90H80V80h10V70H80v10H70V70H60v10h10v10H60v10h10v-5zm80 0v-5h10v10h10V90h-10V80h10V70h-10v10h-10V70h-10v10h10v10h-10v10h10v-5zM20 300v-10h200v20H20v-10z"/>
+	</svg>
+	<h1 style="margin-bottom: 0;">404</h1>
+	<h2>Page not found</h2>
+	<nav>
+		<p>Go to...</p>
+		<ul>
+			<li><a href="/">autoindex</a></li>
+			<li><a href="/info.php">info.php</a></li>
+			<li><a href="/wordpress">wordpress</a></li>
+			<li><a href="/phpmyadmin">phpmyadmin</a></li>
+		</ul>
+	</nav>
+	<footer style="margin-top: 2em;"><code>ft_server</code><small> by <a href="https://profile.intra.42.fr/users/lrocca">lrocca</a></small></footer>
+	<script>
+		if (window.location.pathname == "/")
+			listItem = document.querySelector("li:first-child");
+			newItem = document.createElement('li');
+			newItem.innerHTML = '<b>autoindex is off</b>';
+			listItem.parentNode.replaceChild(newItem, listItem);
+	</script>
+</body>
+</html>
