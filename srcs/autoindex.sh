@@ -8,14 +8,14 @@ reload() {
 
 on() {
 	sed -i 's|autoindex off|autoindex on|g' $conf
-	sed -i 's|index index.php|index index.html index.php|g' $conf
+	sed -i 's|index index.php index.html|index index.php|g' $conf
 	echo "autoindex on"
 	reload
 }
 
 off() {
 	sed -i 's|autoindex on|autoindex off|g' $conf
-	sed -i 's|index index.html index.php|index index.php|g' $conf
+	sed -i 's|index index.php|index index.php index.html|g' $conf
 	echo "autoindex off"
 	reload
 }

@@ -6,7 +6,7 @@
 #    By: lrocca <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 16:18:26 by lrocca            #+#    #+#              #
-#    Updated: 2021/02/19 15:29:34 by lrocca           ###   ########.fr        #
+#    Updated: 2021/02/19 15:54:00 by lrocca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ EXPOSE	80 443
 
 RUN		apt-get update
 RUN		apt-get upgrade -y
-RUN		apt-get install -y wget nginx openssl php-mbstring php7.3-fpm php-mysql mariadb-server
+RUN		apt-get install -y wget nginx openssl php7.3-fpm php-mysql php-mbstring mariadb-server
 
 RUN		openssl req -nodes -x509 -newkey rsa:2048 -keyout /etc/ssl/localhost.key -out /etc/ssl/localhost.crt -days 365 -subj "/C=IT/ST=Roma/L=Roma/O=lrocca@42/OU=Org/CN=ft_server"
 
