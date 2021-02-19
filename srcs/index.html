@@ -37,7 +37,8 @@
 			color: orange;
 		}
 	</style>
-	<link rel="icon" type="image/png" href="https://www.42.fr/wp-content/themes/42/images/42_logo_black.svg">
+	<link rel="icon" type="image/png" href="https://api.intra.42.fr/android-chrome-192x192.png">
+	<link rel="mask-icon" href="https://42.fr/wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
 </head>
 <body>
 	<h1>Welcome to <code>ft_server</code>!</h1>
@@ -52,5 +53,12 @@
 		</ul>
 	</nav>
 	<footer style="margin-top: 2em;"><code>ft_server</code><small> by <a href="https://profile.intra.42.fr/users/lrocca">lrocca</a></small></footer>
+	<script>
+		if (window.location.pathname == "/")
+			listItem = document.querySelector("li:first-child");
+			newItem = document.createElement('li');
+			newItem.innerHTML = '<b>autoindex is off</b>';
+			listItem.parentNode.replaceChild(newItem, listItem);
+	</script>
 </body>
 </html>
