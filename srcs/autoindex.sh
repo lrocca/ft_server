@@ -3,7 +3,7 @@
 conf=/etc/nginx/sites-available/localhost.conf
 
 reload() {
-	service nginx reload
+	service nginx reload > /dev/null
 }
 
 on() {
