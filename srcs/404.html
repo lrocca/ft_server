@@ -4,57 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>404 — ft_server</title>
-	<style>
-		body {
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-			display:flex; flex-direction:column; justify-content:center;
-			height: 100vh;
-			text-align: center;
-			background-color: #111;
-			color: floralwhite;
-			margin: 0;
-		}
-		nav {
-			margin: 0;
-			padding: 0;
-			margin-top: 2em;
-		}
-		ul {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
-		li {
-			line-height: 1.5;
-		}
-		a {
-			color: cyan;
-			text-decoration: none;
-		}
-		a:visited {
-			color: fuchsia;
-		}
-		a:hover {
-			color: orange;
-		}
-		@keyframes rotating {
-			from {
-				-ms-transform: rotate(0deg);
-				-moz-transform: rotate(0deg);
-				-webkit-transform: rotate(0deg);
-				-o-transform: rotate(0deg);
-				transform: rotate(0deg);
-			}
-
-			to {
-				-ms-transform: rotate(360deg);
-				-moz-transform: rotate(360deg);
-				-webkit-transform: rotate(360deg);
-				-o-transform: rotate(360deg);
-				transform: rotate(360deg);
-			}
-		}
-	</style>
+	<link rel="stylesheet" type = "text/css" href = "/styles.css">
 	<link rel="icon" type="image/png" href="https://api.intra.42.fr/android-chrome-192x192.png">
 	<link rel="mask-icon" href="https://42.fr/wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
 </head>
@@ -64,15 +14,8 @@
 	</a>
 	<h1 style="margin-bottom: 0;">404</h1>
 	<h2>Page not found</h2>
-	<nav>
-		<p>Go to...</p>
-		<ul>
-			<li><a href="/ft_server">ft_server</a></li>
-			<li><a href="/">autoindex</a></li>
-			<li><a href="/info.php">info.php</a></li>
-			<li><a href="/wordpress">wordpress</a></li>
-			<li><a href="/phpmyadmin">phpmyadmin</a></li>
-		</ul>
+	<nav style="margin-top: 1em;">
+		<a href="/ft_server">Go home</a>
 	</nav>
 	<footer style="margin-top: 2em;"><code>ft_server</code><small> by <a href="https://profile.intra.42.fr/users/lrocca">lrocca</a></small></footer>
 	<script>

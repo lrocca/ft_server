@@ -6,7 +6,7 @@
 #    By: lrocca <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 16:18:26 by lrocca            #+#    #+#              #
-#    Updated: 2021/02/19 15:54:00 by lrocca           ###   ########.fr        #
+#    Updated: 2021/02/23 17:30:21 by lrocca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,24 +24,20 @@ RUN		openssl req -nodes -x509 -newkey rsa:2048 -keyout /etc/ssl/localhost.key -o
 COPY	srcs/localhost.conf /etc/nginx/sites-available
 RUN		ln -s /etc/nginx/sites-available/localhost.conf /etc/nginx/sites-enabled/
 RUN		rm /etc/nginx/sites-enabled/default /var/www/html/index.nginx-debian.html
-COPY	srcs/index.html srcs/404.html/ var/www/html/
+COPY	srcs/index.html srcs/404.html/ srcs/styles.css var/www/html/
 
 # phpinfo
 RUN		echo "<?php phpinfo(); ?>" >> /var/www/html/info.php
 
 # phpMyAdmin
-RUN		wget -P /tmp https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-english.tar.xz
-RUN		mkdir /var/www/html/phpmyadmin
-RUN		tar -xvf /tmp/phpMyAdmin-latest-english.tar.xz -C /var/www/html/phpmyadmin --strip-components=1
+RUN		wget -P /tmp https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-english.tar.xz && mkdir /var/www/html/phpmyadmin && tar -xvf /tmp/phpMyAdmin-latest-english.tar.xz -C /var/www/html/phpmyadmin --strip-components=1
 COPY	srcs/config.inc.php /var/www/html/phpmyadmin/
 
 # WordPress
-RUN		wget -P /tmp https://wordpress.org/latest.tar.gz
-RUN		mkdir /var/www/html/wordpress
-RUN		tar -xvf /tmp/latest.tar.gz -C /var/www/html/wordpress --strip-components=1
+RUN		wget -P /tmp https://wordpress.org/latest.tar.gz && mkdir /var/www/html/wordpress && tar -xvf /tmp/latest.tar.gz -C /var/www/html/wordpress --strip-components=1
 COPY	srcs/wp-config.php /var/www/html/wordpress/
 COPY	srcs/wordpress.sql srcs/dump.sql /tmp
-RUN		service mysql start && mysql -u root < /tmp/wordpress.sql && mysql -u root wordpress < /tmp/dump.sql
+RUN		service mysql start && mysql -u root < /tmp/wordpress.sql && mysql -u root < /var/www/html/phpmyadmin/sql/create_tables.sql && mysql -u root wordpress < /tmp/dump.sql
 
 RUN		rm tmp/phpMyAdmin-latest-english.tar.xz tmp/latest.tar.gz tmp/wordpress.sql tmp/dump.sql
 COPY	srcs/start.sh srcs/autoindex.sh /
